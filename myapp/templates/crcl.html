@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+    
+    .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px 50px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0056b3;
+    }
+    
+    .input-group {
+        margin-bottom: 20px;
+    }
+    
+    .label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="number"],input[type="text"],
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    select {
+        cursor: pointer;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #0056b3;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+    
+    button:hover {
+        background-color: #003d80;
+    }
+    
+    button:active {
+        background-color: #00264d;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>VKA Monitor</h1>
+        <form action="/calculate_dosage/" method="post"> {% csrf_token %}
+          <div class="dosage-section">
+              <div class="input-group">
+                  <label for="day1-dosage">Day 1 dosage:</label>
+                  <input type="number" id="day1-dosage" name="day1_dosage">
+              </div>
+
+              <!-- Repeat the same input-group for Day 2 to Day 7 dosages -->
+              <!-- Day 2 -->
+              <div class="input-group">
+                  <label for="day2-dosage">Day 2 dosage:</label>
+                  <input type="number" id="day2-dosage" name="day2_dosage">
+              </div>
+
+              <!-- Day 3 -->
+              <div class="input-group">
+                  <label for="day3-dosage">Day 3 dosage:</label>
+                  <input type="number" id="day3-dosage" name="day3_dosage">
+              </div>
+
+              <!-- Day 4 -->
+              <div class="input-group">
+                  <label for="day4-dosage">Day 4 dosage:</label>
+                  <input type="number" id="day4-dosage" name="day4_dosage">
+              </div>
+
+              <!-- Day 5 -->
+              <div class="input-group">
+                  <label for="day5-dosage">Day 5 dosage:</label>
+                  <input type="number" id="day5-dosage" name="day5_dosage">
+              </div>
+
+              <!-- Day 6 -->
+              <div class="input-group">
+                  <label for="day6-dosage">Day 6 dosage:</label>
+                  <input type="number" id="day6-dosage" name="day6_dosage">
+              </div>
+
+              <!-- Day 7 -->
+              <div class="input-group">
+                  <label for="day7-dosage">Day 7 dosage:</label>
+                  <input type="number" id="day7-dosage" name="day7_dosage">
+              </div>
+          </div>
+
+          <div class="medication-section">
+              <div class="input-group">
+                  <label for="medication">Medication:</label>
+                  <select id="medication" name="medication">
+                      <option value="Acenocoumarol">Acenocoumarol</option>
+                      <option value="Marevan">Marevan</option>
+                      <option value="Marcoumar">Marcoumar</option>
+                  </select>
+              </div>
+
+              <div class="input-group">
+                  <label for="med-dosage">Medication dosage:</label>
+                  <input type="text" id="med-dosage" name="med_dosage">
+              </div>
+
+              <div class="input-group">
+                  <label for="divisibility">Divisibility of tablet:</label>
+                  <select id="divisibility" name="divisibility">
+                      <option value="whole">whole</option>
+                      <option value="half">half</option>
+                      <option value="quarter">quarter</option>
+                      <option value="custom">custom...</option>
+                  </select>
+              </div>
+
+              <div class="input-group">
+                  <label for="therapeutic-range">Therapeutic range:</label>
+                  <select id="therapeutic-range" name="therapeutic_range">
+                      <option value="2 - 3">2 - 3</option>
+                      <option value="2.5 - 3.5">2.5 - 3.5</option>
+                      <option value="3 - 4">3 - 4</option>
+                      <option value="custom">custom...</option>
+                  </select>
+              </div>
+          </div>
+
+          <div class="inr-result-section">
+              <div class="input-group">
+                  <label for="inr-result">INR Result:</label>
+                  <input type="text" id="inr-result" name="inr_result">
+              </div>
+          </div>
+
+          <div class="check-button-section">
+              <button id="check-inr-btn" type="submit">Check INR</button>
+          </div>
+      </form>
+    </div>
+</body>
+
+</html>
